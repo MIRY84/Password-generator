@@ -103,10 +103,10 @@ function getPasswordOptions() {
 
   //Declared all users options and prompts
 
-  var isSpecialchar = prompt("would you include  specialcharacters?")
-  var isUppercase = prompt ("Would you include uppercase letters?")
-  var isLowercase = prompt ("Would you include lower case letters?")
-  var isNumber = prompt ("Would you include numbers?")
+  var isSpecialchar = confirm("would you include  specialcharacters?")//changed prompt to confirm
+  var isUppercase = confirm("Would you include uppercase letters?")
+  var isLowercase = confirm ("Would you include lower case letters?")
+  var isNumber = confirm ("Would you include numbers?")
 
   //Loops for user inputs, using concat method to attach the results
 
@@ -126,18 +126,25 @@ function getPasswordOptions() {
     Userchoice = Userchoice.concat(numericCharacters)
   }
 
-  console.log(Userchoice);
-
 
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
 
+  var getRandom = Math.floor(Math.random()) * Userchoice.length
 }
 
 // Function to generate password with user input
 function generatePassword() {
+  var password = "";
+  for(var i=0; i=passwordLength; i++) {
+    var getRandom = Math.floor(Math.random()) * Userchoice.length
+    
+    password = password + Userchoice[getRandom]
+  }
+  return password
+  
 
 }
 
@@ -146,11 +153,15 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
+   getPasswordOptions() ; //added options function to let the button on click working
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
 
   passwordText.value = password;
+  
 }
+
+console.log(password)
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
