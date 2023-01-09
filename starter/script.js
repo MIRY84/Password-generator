@@ -90,15 +90,16 @@ var upperCasedCharacters = [
 
 //added 2 more variables storing the prompts + pass length
 
-var passwordLength = 0;
+var passwordLength = [];
 var Userchoice = "";
+
 
 // Function to prompt user for password options
 function getPasswordOptions() {
   var passwordLength = parseInt(prompt("Choose your password length: 10-64 characters"))
   if (passwordLength < 10 || passwordLength > 64) {
     alert("You must choose only numbers 10-64!")
-    return getPasswordOptions
+    return false;
   }
 
   //Declared all users options and prompts
@@ -125,6 +126,8 @@ function getPasswordOptions() {
   if(isNumber ===true) {
     Userchoice = Userchoice.concat(numericCharacters)
   }
+  return true;
+  
 
 
 }
@@ -132,28 +135,34 @@ function getPasswordOptions() {
 // Function for getting a random element from an array
 function getRandom(arr) {
 
-  var getRandom = Math.floor(Math.random()) * Userchoice.length
+  var getRandom = Math.floor(Math.random() * Userchoice.length)
 }
 
 // Function to generate password with user input
 function generatePassword() {
+  getPasswordOptions();
+
   var password = "";
-  for(var i=0; i=passwordLength; i++) {
-    var getRandom = Math.floor(Math.random()) * Userchoice.length
+  for(var i=0; i<passwordLength; i++){
     
-    password = password + Userchoice[getRandom]
+    
+    password = password + Userchoice[getRandom][i]
   }
-  return password
+}
+
+  
   
 
-}
+  
+
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-   getPasswordOptions() ; //added options function to let the button on click working
+   //added options function to let the button on click working
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
 
