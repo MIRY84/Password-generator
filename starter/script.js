@@ -103,9 +103,9 @@ var isSpecialchar;
 function generatePassword() {
 
   var passwordLength = parseInt(prompt("Choose your password length: 10-64 characters"))
-  if (passwordLength < 10 || passwordLength > 64) {
+  while (passwordLength < 10 || passwordLength > 64) {
     alert("You must choose only numbers 10-64!");
-    prompt(("Choose your password length: 10-64 characters"));
+    passwordLength = parseInt(prompt("Choose your password length: 10-64 characters"));
   }
 
   //Declared all users options and prompts
@@ -133,9 +133,9 @@ function generatePassword() {
     Userchoice = Userchoice.concat(numericCharacters);
   }
   //added the if statement for false returns of users parameters
-  if (isNumber === false && isLowercase === false && isUppercase === false && isSpecialchar === false) {
-    alert("you must choose at least one parameter!")
-    return getPasswordOptions()
+  while (isNumber === false && isLowercase === false && isUppercase === false && isSpecialchar === false) {
+    alert("you must choose at least one parameter!");
+    return generatePassword();
   }
 
 
