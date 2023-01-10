@@ -99,7 +99,8 @@ var isSpecialchar;
 
 
 // Function to prompt user for password options and prompt if password not in parameters
-//function getPasswordOptions() {
+
+//I just summed it up to one function
 function generatePassword() {
 
   var passwordLength = parseInt(prompt("Choose your password length: 10-64 characters"))
@@ -117,19 +118,19 @@ function generatePassword() {
 
   //Loops for user inputs, using concat method to attach the results
 
-  if (isSpecialchar===true) {
+  if (isSpecialchar === true) {
     Userchoice = Userchoice.concat(specialCharacters);
   }
 
-  if (isUppercase===true) {
+  if (isUppercase === true) {
     Userchoice = Userchoice.concat(upperCasedCharacters);
   }
 
-  if (isLowercase===true) {
+  if (isLowercase === true) {
     Userchoice = Userchoice.concat(lowerCasedCharacters);
   }
 
-  if (isNumber===true) {
+  if (isNumber === true) {
     Userchoice = Userchoice.concat(numericCharacters);
   }
   //added the if statement for false returns of users parameters
@@ -140,19 +141,11 @@ function generatePassword() {
 
 
   // Function for getting a random element from an array/ still not working
-  //function getRandom() {
-  // var Randomindex ="";
 
-  //  Randomindex = Randomindex + Userchoice[Math.floor(Math.random() * Userchoice.length)];
-
-  // Function to generate password with user input
-  //function generatePassword() {
-  // getPasswordOptions();
+  //I created a new var with password to semplify the code
 
   var Newpassword = "";
   for (var i = 0; i < passwordLength; i++) {
-
-
     Newpassword = Newpassword + Userchoice[Math.floor(Math.random() * Userchoice.length)];
   }
   return Newpassword;
