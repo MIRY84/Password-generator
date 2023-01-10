@@ -9,7 +9,10 @@ The following image shows the web application's appearance and functionality:
 
 ## Usage
 
-Enter the website and click on the gen
+Enter the website and click on the generate button .
+It will ask you to input some characters and the length of the password.
+Follow this link to test it:
+
 
 ## Acceptance criteria
 
