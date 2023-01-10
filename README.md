@@ -14,6 +14,7 @@ It will ask you to input some characters and the length of the password.
 Follow this link to test it:
 
 
+
 ## Acceptance criteria
 
 * Generate a password when the button is clicked
@@ -27,6 +28,9 @@ Follow this link to test it:
       * Special characters ($@%&*, etc)
   * Code should validate for each input and at least one character type should be selected
   * Once prompts are answered then the password should be generated and displayed in an alert or written to the page
+
+## Credits
+N/A
 
 ## Licence
 MIT
