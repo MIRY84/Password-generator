@@ -103,7 +103,7 @@ var isSpecialchar;
 function generatePassword() {
 
   var passwordLength = parseInt(prompt("Choose your password length: 10-64 characters"))
-  while (passwordLength < 10 || passwordLength > 64) {
+  while (passwordLength < 10 || passwordLength > 64 || isNaN(passwordLength)) {
     alert("You must choose only numbers 10-64!");
     passwordLength = parseInt(prompt("Choose your password length: 10-64 characters"));
   }
