@@ -111,12 +111,12 @@ function generatePassword() {
 
   //Declared all users options and prompts
 
-  var isSpecialchar = confirm("would you include  specialcharacters?")//changed prompt to confirm
+  var isSpecialchar = confirm("Would you include special characters?")//changed prompt to confirm
   var isUppercase = confirm("Would you include uppercase letters?")
   var isLowercase = confirm("Would you include lower case letters?")
   var isNumber = confirm("Would you include numbers?")
 
-  //Loops for user inputs, using concat method to attach the results
+  //If statements for user inputs, using concat method to attach the strings of prompts
 
   if (isSpecialchar === true) {
     Userchoice = Userchoice.concat(specialCharacters);
@@ -135,7 +135,7 @@ function generatePassword() {
   }
   //added the if statement for false returns of users parameters
   while (isNumber === false && isLowercase === false && isUppercase === false && isSpecialchar === false) {
-    alert("you must choose at least one parameter!");
+    alert("You must choose at least one parameter!");
     return generatePassword();
   }
 
