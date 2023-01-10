@@ -117,19 +117,19 @@ function generatePassword() {
 
   //Loops for user inputs, using concat method to attach the results
 
-  if (isSpecialchar) {
+  if (isSpecialchar===true) {
     Userchoice = Userchoice.concat(specialCharacters);
   }
 
-  if (isUppercase) {
+  if (isUppercase===true) {
     Userchoice = Userchoice.concat(upperCasedCharacters);
   }
 
-  if (isLowercase) {
+  if (isLowercase===true) {
     Userchoice = Userchoice.concat(lowerCasedCharacters);
   }
 
-  if (isNumber) {
+  if (isNumber===true) {
     Userchoice = Userchoice.concat(numericCharacters);
   }
   //added the if statement for false returns of users parameters
