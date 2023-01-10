@@ -140,8 +140,6 @@ function generatePassword() {
   }
 
 
-  // Function for getting a random element from an array/ still not working
-
   //I created a new var with password to semplify the code
 
   var Newpassword = "";
@@ -150,14 +148,6 @@ function generatePassword() {
   }
   return Newpassword;
 }
-
-
-
-
-
-
-
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
