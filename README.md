@@ -5,7 +5,7 @@ This is a simple website featuring an app with prompts to the user to formulate 
 
 The following image shows the web application's appearance and functionality:
 
-![password generator demo](./assets/Password-generator.png)
+![password generator demo](./assets/password-gen%20png.png)
 
 ## Usage
 
