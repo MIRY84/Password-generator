@@ -88,72 +88,81 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-//added 2 more variables storing the prompts + pass length
+//added more variables storing the prompts + pass length + choices
 
-var passwordLength = [];
-var Userchoice = "";
+var passwordLength = 0;
+var Userchoice = [];
+var isLowercase;
+var isUppercase;
+var isNumber;
+var isSpecialchar;
 
 
-// Function to prompt user for password options
-function getPasswordOptions() {
+// Function to prompt user for password options and prompt if password not in parameters
+//function getPasswordOptions() {
+function generatePassword() {
+
   var passwordLength = parseInt(prompt("Choose your password length: 10-64 characters"))
   if (passwordLength < 10 || passwordLength > 64) {
-    alert("You must choose only numbers 10-64!")
-    return false;
+    alert("You must choose only numbers 10-64!");
+    prompt(("Choose your password length: 10-64 characters"));
   }
 
   //Declared all users options and prompts
 
   var isSpecialchar = confirm("would you include  specialcharacters?")//changed prompt to confirm
   var isUppercase = confirm("Would you include uppercase letters?")
-  var isLowercase = confirm ("Would you include lower case letters?")
-  var isNumber = confirm ("Would you include numbers?")
+  var isLowercase = confirm("Would you include lower case letters?")
+  var isNumber = confirm("Would you include numbers?")
 
   //Loops for user inputs, using concat method to attach the results
 
-  if (isSpecialchar === true) {
-    Userchoice = Userchoice.concat(specialCharacters)
+  if (isSpecialchar) {
+    Userchoice = Userchoice.concat(specialCharacters);
   }
 
-  if (isUppercase ===true) {
-    Userchoice = Userchoice.concat(upperCasedCharacters)
+  if (isUppercase) {
+    Userchoice = Userchoice.concat(upperCasedCharacters);
   }
 
-  if(isLowercase ===true) {
-    Userchoice = Userchoice.concat(lowerCasedCharacters)
+  if (isLowercase) {
+    Userchoice = Userchoice.concat(lowerCasedCharacters);
   }
 
-  if(isNumber ===true) {
-    Userchoice = Userchoice.concat(numericCharacters)
+  if (isNumber) {
+    Userchoice = Userchoice.concat(numericCharacters);
   }
-  return true;
-  
+  //added the if statement for false returns of users parameters
+  if (isNumber === false && isLowercase === false && isUppercase === false && isSpecialchar === false) {
+    alert("you must choose at least one parameter!")
+    return getPasswordOptions()
+  }
 
 
+  // Function for getting a random element from an array/ still not working
+  //function getRandom() {
+  // var Randomindex ="";
+
+  //  Randomindex = Randomindex + Userchoice[Math.floor(Math.random() * Userchoice.length)];
+
+  // Function to generate password with user input
+  //function generatePassword() {
+  // getPasswordOptions();
+
+  var Newpassword = "";
+  for (var i = 0; i < passwordLength; i++) {
+
+
+    Newpassword = Newpassword + Userchoice[Math.floor(Math.random() * Userchoice.length)];
+  }
+  return Newpassword;
 }
 
-// Function for getting a random element from an array
-function getRandom(arr) {
 
-  var getRandom = Math.floor(Math.random() * Userchoice.length)
-}
 
-// Function to generate password with user input
-function generatePassword() {
-  getPasswordOptions();
 
-  var password = "";
-  for(var i=0; i<passwordLength; i++){
-    
-    
-    password = password + Userchoice[getRandom][i]
-  }
-}
 
-  
-  
 
-  
 
 
 
@@ -162,12 +171,12 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-   //added options function to let the button on click working
+  //added options function to let the button on click working
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
 
   passwordText.value = password;
-  
+
 }
 
 console.log(password)
